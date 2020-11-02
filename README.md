@@ -27,6 +27,9 @@ marbles =
 
 # Example: bamboo
 ```haskell
+random :: Shader (V2 Float) -> Shader Float
+random v = fract $ 43758.5453 * (sin . dot v $ vec2 12.9898 78.233)
+
 sstep :: (Fractional a, Eq a, GenType Float a) => Shader a -> Shader a -> Shader a
 sstep edge x = smoothstep (edge - 0.04) (edge + 0.04) x
 
