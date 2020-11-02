@@ -1,8 +1,11 @@
 # lazy-shader
-`lazy-shader` makes it possible to write fragment shaders using simple Haskell expressions. The function `runShader :: (Int, Int) -> Shader (V4 Float) -> IO ()` is used to render the shader on window with specific width and height, where `Shader (V4 Float)` is the expressed color for each pixel.
+`lazy-shader` makes it possible to write fragment shaders using simple Haskell expressions.
+
+The function `runShader :: (Int, Int) -> Shader (V4 Float) -> IO ()` is used to render the shader on window with specific width and height, where `Shader (V4 Float)` is the expressed color for each pixel.
 
 OpenGL and GLSL is the API used with the help of GLFW-b for handling the window and such.
 
+## Background
 This project was mainly for learning more on writing DSLs in Haskell. Some features from GLSL are missing, for example data types and functions for matrices. There are also room for optimization. The transpiled code gets exponentially bigger in relation to the expressions written in Haskell. The same expressions are repeated in GLSL. This could be solved by combining similar expressions to variable assignments and methods, but this was beyond the scope for this project.
 
 ## Example: marbles
