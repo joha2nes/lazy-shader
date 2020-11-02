@@ -9,6 +9,7 @@ OpenGL and GLSL is the API used with the help of GLFW-b for handling the window 
 This project was mainly for learning more on writing DSLs in Haskell. Some features from GLSL are missing, for example data types and functions for matrices. There are also room for optimization. The transpiled code gets exponentially bigger in relation to the expressions written in Haskell. The same expressions are repeated in GLSL. This could be solved by combining similar expressions to variable assignments and methods, but this was beyond the scope for this project.
 
 # Example: marbles
+![](demo/marbles.gif)
 ```haskell
 tile :: Shader (V2 Float) -> Shader (V2 Float) -> Shader (V2 Float)
 tile uv zoom = fract (uv * zoom)
@@ -30,9 +31,8 @@ marbles =
         
     in vec4 ball ball ball 1
 ```
-![](demo/marbles.gif)
-
 # Example: bamboo
+![](demo/bamboo.gif)
 ```haskell
 random :: Shader (V2 Float) -> Shader Float
 random v = fract $ 43758.5453 * (sin . dot v $ vec2 12.9898 78.233)
@@ -66,4 +66,3 @@ bamboo =
 
     in mix' bg color mask
 ```
-![](demo/bamboo.gif)
